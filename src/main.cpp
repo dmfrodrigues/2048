@@ -477,7 +477,7 @@ int main(){
     sf::Music backmusic;
     backmusic.setLoop(true);
     backmusic.setVolume(25);
-    backmusic.openFromFile("resources/TheoTown_Song.wav");
+    backmusic.openFromFile("resources/TheoTown_Song.ogg");
     backmusic.play();
 
     Window2048 win;

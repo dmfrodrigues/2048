@@ -23,6 +23,6 @@ This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics libra
 
 ## License
 
-© 2020 Diogo Rodrigues
+© 2018-2020 Diogo Rodrigues
 
-All files authored by me are licensed under [GNU General Public License v3](LICENSE) by **© 2020 Diogo Rodrigues**.
+All files authored by me are licensed under [GNU General Public License v3](LICENSE) by **© 2018-2020 Diogo Rodrigues**.

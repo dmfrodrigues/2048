@@ -2,6 +2,7 @@
  * (C) 2018-2020 Diogo Rodrigues
  */
 
+#ifndef MYCONVERSIONS_H_INCLUDED
 #define MYCONVERSIONS_H_INCLUDED
 
 #include <sstream>

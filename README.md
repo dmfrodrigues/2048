@@ -2,6 +2,8 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
+![compile](https://github.com/dmfrodrigues/2048/workflows/compile/badge.svg)
+
 This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics library.
 
 ## Third-party resources

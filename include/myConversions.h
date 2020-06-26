@@ -1,4 +1,7 @@
-#ifndef MYCONVERSIONS_H_INCLUDED
+/**
+ * (C) 2018-2020 Diogo Rodrigues
+ */
+
 #define MYCONVERSIONS_H_INCLUDED
 
 #include <sstream>

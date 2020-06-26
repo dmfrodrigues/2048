@@ -1,3 +1,6 @@
+RMDIR=rm -rf
+RM   =rm -f
+
 MAIN   =main
 PROG   =main
 SDIR   =./src
@@ -6,16 +9,22 @@ ODIR   =./obj
 
 CC     =g++
 CFLAGS =-Wall
+IFLAGS =-I$(IDIR)
+LFLAGS =-lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lsfml-network
 
-all: main
+all: $(PROG)
 
-O_FILES=RoundedRectangleShape.o
+O_FILES=$(ODIR)/RoundedRectangleShape.o
 
-$(PROG): $(MAIN).cpp $(O_FILES)
-	$(CC) $(CFLAGS) $(O_FILES) $(MAIN).cpp -o $@
+$(PROG): $(SDIR)/$(MAIN).cpp $(O_FILES)
+	$(CC) $(CFLAGS) $(IFLAGS) $(SDIR)/$(MAIN).cpp $(O_FILES) $(LFLAGS) -o $@
 
 $(ODIR)/%.o: $(SDIR)/%.cpp | $(ODIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 $(ODIR):
 	mkdir -p $@
+
+clean:
+	$(RMDIR) $(ODIR)
+	$(RM) $(PROG)

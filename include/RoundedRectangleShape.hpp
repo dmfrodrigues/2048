@@ -1,5 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
+// Copied from https://github.com/SFML/SFML/wiki/Source%3A-Draw-Rounded-Rectangle on 26 june 2020
+// Authored by Overdrivr (https://github.com/Overdrivr)
+//
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
 //
@@ -41,7 +44,7 @@ class RoundedRectangleShape : public sf::Shape
         ///
         /// \param size Size of the rectangle
         /// \param radius Radius for each rounded corner
-        /// \param pointCount Number of points of each corner
+        /// \param cornerPointCount Number of points of each corner
         ///
         ////////////////////////////////////////////////////////////
         explicit RoundedRectangleShape(const Vector2f& size = Vector2f(0, 0), float radius = 0, unsigned int cornerPointCount = 0);
@@ -51,7 +54,7 @@ class RoundedRectangleShape : public sf::Shape
         ///
         /// \param size New size of the rounded rectangle
         ///
-        /// \see GetSize
+        /// \see getSize
         ///
         ////////////////////////////////////////////////////////////
         void setSize(const Vector2f& size);
@@ -61,7 +64,7 @@ class RoundedRectangleShape : public sf::Shape
         ///
         /// \return Size of the rounded rectangle
         ///
-        /// \see SetSize
+        /// \see setSize
         ///
         ////////////////////////////////////////////////////////////
         const Vector2f& getSize() const;
@@ -69,9 +72,9 @@ class RoundedRectangleShape : public sf::Shape
         ////////////////////////////////////////////////////////////
         /// \brief Set the radius of the rounded corners
         ///
-        /// \param Radius of the rounded corners
+        /// \param radius Radius of the rounded corners
         ///
-        /// \see GetRadius
+        /// \see getCornersRadius
         ///
         ////////////////////////////////////////////////////////////
         void setCornersRadius(float radius);
@@ -81,17 +84,17 @@ class RoundedRectangleShape : public sf::Shape
         ///
         /// \return Radius of the rounded corners
         ///
-        /// \see SetRadius
+        /// \see setCornersRadius
         ///
         ////////////////////////////////////////////////////////////
-        const float getCornersRadius() const;
+        float getCornersRadius() const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Set the number of points of each corner
         ///
         /// \param count New number of points of the rounded rectangle
         ///
-        /// \see GetPointCount
+        /// \see getPointCount
         ///
         ////////////////////////////////////////////////////////////
         void setCornerPointCount(unsigned int count);

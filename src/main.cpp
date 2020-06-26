@@ -1,3 +1,7 @@
+/**
+ * (C) 2018-2020 Diogo Rodrigues
+ */
+
 #include <SFML/Graphics.hpp>
     #include "RoundedRectangleShape.hpp"
 #include <SFML/Audio.hpp>
@@ -123,17 +127,6 @@ public:
         }
         return ret;
     }
-//    void Print() const{
-//        const Board& obj = *this;
-//        std::cout << std::endl;
-//        for(sizeT y = 0; y < obj[0].size(); ++y){
-//            for(sizeT x = 0; x < obj.size(); ++x){
-//                std::cout << " " << obj[x][y].Number;
-//            }
-//            std::cout << std::endl;
-//        }
-//        std::cout << std::endl;
-//    }
 };
 /**SOUND,COLOR,FONT,CHARSIZE===========================*/
 sf::SoundBuffer newScore_sound_buffer;
@@ -237,7 +230,7 @@ private:
     sf::RoundedRectangleShape BoardRect = sf::RoundedRectangleShape(sf::Vector2f(WinSz.x-2*BoardMargin, WinSz.y-2*BoardMargin-UpMargin), radius, 20);
     std::vector<sf::RoundedRectangleShape> TilesBack =
         std::vector<sf::RoundedRectangleShape>(sz_*sz_, sf::RoundedRectangleShape(sf::Vector2f(TileSize,TileSize), radius/2, 10));
-    sf::Text txtScore = sf::Text("Pontuação: 0", font, charSz_small);
+    sf::Text txtScore = sf::Text("Score: 0", font, charSz_small);
     void CreateShapes(){
         ///BACKGROUND
         Background[0].position = sf::Vector2f(      0,      0); Background[0].color = sf::Color(150,150,150);
@@ -284,7 +277,7 @@ private:
     ///SCORE
     int Score = 0;
     inline void UpdateScore(const int& n){
-        txtScore.setString(mysprintf(Score += n, "Pontuação: %d"));
+        txtScore.setString(mysprintf(Score += n, "Score: %d"));
     }
     ///BOARD
     Board board = Board(sz_, sz_, Tile(0));
@@ -390,10 +383,10 @@ private:
         }
     }
 public:
-    Window2048(const std::string& path): sf::RenderWindow(sf::VideoMode(WinSz.x, WinSz.y), "2048!", sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(0,0,8)) {
+    Window2048(): sf::RenderWindow(sf::VideoMode(WinSz.x, WinSz.y), "2048!", sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(0,0,8)) {
 
         sf::Image icon2048;
-        icon2048.loadFromFile(path + "\\Files\\icon2048_transp.png");
+        icon2048.loadFromFile("resources/icon2048_transp.png");
         setIcon(icon2048.getSize().x, icon2048.getSize().y, icon2048.getPixelsPtr());
 
         setFramerateLimit(300);
@@ -445,14 +438,14 @@ public:
             }
         }
         sf::RectangleShape rectFinal(WinSz);
-        sf::Text txtFinal("Fim do jogo!", font, 115/80*charSz_large);
+        sf::Text txtFinal("Game over!", font, 115/80*charSz_large);
         txtFinal.setPosition(sf::Vector2f(WinSz.x/2 - txtFinal.getLocalBounds().width/2, 0.25*WinSz.y));
-        sf::Text txtScore(mysprintf(Score, "Pontuação: %d"), font, 1.15*charSz_small);
+        sf::Text txtScore(mysprintf(Score, "Score: %d"), font, 1.15*charSz_small);
         txtScore.setPosition(sf::Vector2f(WinSz.x/2 - txtScore.getLocalBounds().width/2, 0.40*WinSz.y));
-        sf::Text txtAutor("Diogo Rodrigues, nº 5\n"
-                          "12ºB - 2017/18\n"
-                          "API B - Prof. Daniel Prata\n"
-                          "Escola Secundária do Castêlo da Maia", font, charSz_small*35/50);
+        sf::Text txtAutor(L"Diogo Rodrigues, nº 5\n"
+                           "12ºB - 2017/18\n"
+                           "API B - Prof. Daniel Prata\n"
+                           "Escola Secundária do Castêlo da Maia", font, charSz_small*35/50);
         txtAutor.setPosition(sf::Vector2f(20, WinSz.y - txtAutor.getLocalBounds().height - 30));
         txtAutor.setFillColor(sf::Color(250,250,250,230));
         std::pair<float,float> alphaLim(0.0,200.0); float alphaStep = 0.05;
@@ -476,27 +469,18 @@ public:
 int main(){
     srand(time(NULL));
 
+    font.loadFromFile("resources/brittanic-bold-regular.ttf");
 
-
-    char buffer[256];
-    int sz = GetModuleFileName(NULL, buffer, 256);
-    std::string path(buffer, sz);
-    path = std::string(path.begin(), path.begin() + path.find_last_of("\\"));
-
-
-
-    font.loadFromFile("C:/Windows/Fonts/BRITANIC.TTF");
-
-    newScore_sound_buffer.loadFromFile("\\Files\\Sound\\newScore_sound_v01.wav");
+    newScore_sound_buffer.loadFromFile("resources/newScore_sound_v01.wav");
     newScore_sound.setBuffer(newScore_sound_buffer);
 
     sf::Music backmusic;
     backmusic.setLoop(true);
     backmusic.setVolume(25);
-    backmusic.openFromFile(path+"\\Files\\Sound\\TheoTown_Song.wav");
+    backmusic.openFromFile("resources/TheoTown_Song.wav");
     backmusic.play();
 
-    Window2048 win(path);
+    Window2048 win;
     win.Start();
 
     backmusic.stop();

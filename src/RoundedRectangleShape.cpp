@@ -1,5 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
+// Copied from https://github.com/SFML/SFML/wiki/Source%3A-Draw-Rounded-Rectangle on 26 june 2020
+// Authored by Overdrivr (https://github.com/Overdrivr)
+//
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
 //
@@ -22,7 +25,7 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "RoundedRectangleShape.hpp"
+#include <RoundedRectangleShape.hpp>
 #include <cmath>
 
 namespace sf
@@ -57,7 +60,7 @@ void RoundedRectangleShape::setCornersRadius(float radius)
 }
 
 ////////////////////////////////////////////////////////////
-const float RoundedRectangleShape::getCornersRadius() const
+float RoundedRectangleShape::getCornersRadius() const
 {
     return myRadius;
 }
@@ -84,7 +87,6 @@ sf::Vector2f RoundedRectangleShape::getPoint(std::size_t index) const
     float deltaAngle = 90.0f/(myCornerPointCount-1);
     sf::Vector2f center;
     unsigned int centerIndex = index/myCornerPointCount;
-    unsigned int offset = 0;
     static const float pi = 3.141592654f;
 
     switch(centerIndex)
@@ -98,4 +100,4 @@ sf::Vector2f RoundedRectangleShape::getPoint(std::size_t index) const
     return sf::Vector2f(myRadius*cos(deltaAngle*(index-centerIndex)*pi/180)+center.x,
                         -myRadius*sin(deltaAngle*(index-centerIndex)*pi/180)+center.y);
 }
-}//namespace sf
+} // namespace sf

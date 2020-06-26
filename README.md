@@ -1,8 +1,15 @@
-# 2048 clone
+# 2048!
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ![compile](https://github.com/dmfrodrigues/2048/workflows/compile/badge.svg)
+
+- **Project name:** 2048!
+- **Short description:** Clone of [2048](https://github.com/gabrielecirulli/2048)
+- **Environment:** Unix/Windows
+- **Tools:** C++, SFML
+- **Institution:** [AECM](https://aecastelomaia.pt/)
+- **Course:** API B (Informatic Applications B)
 
 This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics library.
 

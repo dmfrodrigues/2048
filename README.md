@@ -7,11 +7,11 @@
 - **Project name:** 2048!
 - **Short description:** Clone of [2048](https://github.com/gabrielecirulli/2048)
 - **Environment:** Unix/Windows
-- **Tools:** C++, SFML
+- **Tools:** C++, [SFML](https://www.sfml-dev.org/)
 - **Institution:** [AECM](https://aecastelomaia.pt/)
 - **Course:** API B (Informatic Applications B)
 
-This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics library.
+This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics library. Further installation tutorials are available [here](https://www.sfml-dev.org/tutorials/2.5/). If you are under Linux, the easiest way is to check if it is available in your distribution's package repository (e.g. for Debian, `sudo apt install libsfml-dev`)
 
 ## Third-party resources
 

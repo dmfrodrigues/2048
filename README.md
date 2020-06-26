@@ -1,5 +1,7 @@
 # 2048 clone
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics library.
 
 ## Third-party resources
@@ -12,4 +14,6 @@ This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics libra
 
 ## License
 
+© 2020 Diogo Rodrigues
 
+All files authored by me are licensed under [GNU General Public License v3](LICENSE) by **© 2020 Diogo Rodrigues**.

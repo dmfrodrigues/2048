@@ -54,6 +54,7 @@ jobs:
         copy C:\sfml\SFML-2.5.1\bin\sfml-audio-2.dll .
         copy C:\sfml\SFML-2.5.1\bin\sfml-system-2.dll .
         copy C:\sfml\SFML-2.5.1\bin\sfml-window-2.dll .
+        copy C:\sfml\SFML-2.5.1\bin\openal32.dll .
 
     - name: Upload zip
       uses: actions/upload-artifact@v2
@@ -63,7 +64,9 @@ jobs:
           LICENSE
           README.md
           2048.exe
+          resources
           sfml-graphics-2.dll
           sfml-audio-2.dll
           sfml-system-2.dll
           sfml-window-2.dll
+          openal32.dll

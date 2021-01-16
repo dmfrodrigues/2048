@@ -26,3 +26,12 @@ jobs:
     
     - name: make
       run: make
+
+    - name: Upload zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: 2048-linux-64bit
+        path: |
+          LICENSE
+          README.md
+          2048

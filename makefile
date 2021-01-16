@@ -2,7 +2,7 @@ RMDIR=rm -rf
 RM   =rm -f
 
 MAIN   =main
-PROG   =main
+PROG   =2048
 SDIR   =./src
 IDIR   =./include
 ODIR   =./obj

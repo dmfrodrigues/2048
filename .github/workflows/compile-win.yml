@@ -46,3 +46,12 @@ jobs:
     
     - name: make
       run: make SFML_INCLUDE="C:\sfml\SFML-2.5.1\include" SFML_LIB="C:\sfml\SFML-2.5.1\lib"
+
+    - name: Upload zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: 2048-win-64bit
+        path: |
+          LICENSE
+          README.md
+          2048.exe

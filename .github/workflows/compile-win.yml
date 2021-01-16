@@ -36,7 +36,7 @@ jobs:
         echo "C:\sfml\SFML-2.5.1\lib" >> $GITHUB_PATH
 
     - name: Checkout submodules
-      shell: bash
+      shell: cmd
       run: |
         # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
         # git config --global url."https://github.com/".insteadOf "git@github.com:"
@@ -47,6 +47,14 @@ jobs:
     - name: make
       run: make SFML_INCLUDE="C:\sfml\SFML-2.5.1\include" SFML_LIB="C:\sfml\SFML-2.5.1\lib"
 
+    - name: Copy DLLs to repo
+      shell: cmd
+      run: |
+        copy C:\sfml\SFML-2.5.1\bin\sfml-graphics-2.dll .
+        copy C:\sfml\SFML-2.5.1\bin\sfml-audio-2.dll .
+        copy C:\sfml\SFML-2.5.1\bin\sfml-system-2.dll .
+        copy C:\sfml\SFML-2.5.1\bin\sfml-window-2.dll .
+
     - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
@@ -55,3 +63,7 @@ jobs:
           LICENSE
           README.md
           2048.exe
+          sfml-graphics-2.dll
+          sfml-audio-2.dll
+          sfml-system-2.dll
+          sfml-window-2.dll

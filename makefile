@@ -12,8 +12,15 @@ CFLAGS =-Wall
 IFLAGS =-I$(IDIR)
 LFLAGS =-lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lsfml-network
 
-#IFLAGS += -IC:\sfml\SFML-2.5.1\include
-#LFLAGS += -LC:\sfml\SFML-2.5.1\lib
+ifeq ($(SFML_INCLUDE),)
+else
+IFLAGS += -I$(SFML_INCLUDE)
+endif
+
+ifeq ($(SFML_LIB),)
+else
+LFLAGS += -L$(SFML_LIB)
+endif
 
 all: $(PROG)
 

@@ -14,6 +14,13 @@
 
 This project uses [SFML](https://www.sfml-dev.org/), a simple C++ graphics library. Further installation tutorials are available [here](https://www.sfml-dev.org/tutorials/2.5/). If you are under Linux, the easiest way is to check if it is available in your distribution's package repository (e.g. for Debian, `sudo apt install libsfml-dev`)
 
+## Installing
+
+Under Microsoft Windows, it is likely that, even if you add the SFML `include` and `lib` folders to PATH, `g++` will still ignore those. Instead, you can run `make` (or `mingw32-make`) and specify the paths where SFML headers and libraries are, by running for instance:
+```cmd
+make SFML_INCLUDE="C:\sfml\SFML-2.5.1\include" SFML_LIB="C:\sfml\SFML-2.5.1\lib"
+```
+
 ## Third-party resources
 
 `brittanic-bold-regular.ttf` was obtained for free from [FontsGeek](https://fontsgeek.com/fonts/Britannic-Bold-Regular).

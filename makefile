@@ -22,6 +22,10 @@ else
 LFLAGS += -L$(SFML_LIB)
 endif
 
+ifeq ($(OS),Windows_NT)
+LFLAGS += -mwindows
+endif
+
 all: $(PROG)
 
 O_FILES=$(ODIR)/RoundedRectangleShape.o

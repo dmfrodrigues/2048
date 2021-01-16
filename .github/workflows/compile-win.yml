@@ -1,0 +1,48 @@
+name: compile-win
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install MinGW-W64 x86_64
+      shell: cmd
+      run: |
+        C:
+        cd C:\
+        mkdir mingw-w64
+        cd mingw-w64
+        curl -L --insecure https://www.dropbox.com/s/u51ejh08x3velu4/x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z?dl=1 --output x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z
+        7z x x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z -y -ox86_64-7.3.0-release-posix-seh-rt_v5-rev0
+        echo "C:\mingw-w64\x86_64-7.3.0-release-posix-seh-rt_v5-rev0\mingw64\bin" >> $GITHUB_PATH
+
+    - name: Install SFML
+      shell: cmd
+      run: |
+        C:
+        cd C:\
+        mkdir sfml
+        cd sfml
+        curl -L --insecure https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip --output SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip
+        7z x SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip -y
+        echo "C:\sfml\SFML-2.5.1\include" >> $GITHUB_PATH
+        echo "C:\sfml\SFML-2.5.1\lib" >> $GITHUB_PATH
+
+    - name: Checkout submodules
+      shell: bash
+      run: |
+        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
+        # git config --global url."https://github.com/".insteadOf "git@github.com:"
+        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+    
+    - name: make
+      run: make

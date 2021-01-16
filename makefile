@@ -12,6 +12,9 @@ CFLAGS =-Wall
 IFLAGS =-I$(IDIR)
 LFLAGS =-lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lsfml-network
 
+#IFLAGS += -IC:\sfml\SFML-2.5.1\include
+#LFLAGS += -LC:\sfml\SFML-2.5.1\lib
+
 all: $(PROG)
 
 O_FILES=$(ODIR)/RoundedRectangleShape.o
